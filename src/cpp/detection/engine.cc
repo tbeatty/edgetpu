@@ -38,7 +38,7 @@ std::vector<DetectionCandidate> DetectionEngine::DetectWithInputTensor(
     float y2 = std::min(static_cast<float>(1.0), output[0][4 * i + 2]);
     float x2 = std::min(static_cast<float>(1.0), output[0][4 * i + 3]);
     q.push(
-        DetectionCandidate({BoxCornerEncoding({x1, y1, x2, y2}), id, score}));
+        DetectionCandidate({BoxCornerEncoding({y1, x1, y2, x2}), id, score}));
     if (q.size() > top_k) q.pop();
   }
 
